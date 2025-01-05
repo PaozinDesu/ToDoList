@@ -1,7 +1,6 @@
-import express, { Request, Response } from "express";
+import { Router } from "express";
+import { GetAllTasksController } from "../controllers/tasksControllers";
 
-export const router = express.Router();
+export const router = Router();
 
-router.get("/", (req: Request, res: Response) => {
-    res.status(200).send("Express + TypeScript Server");
-  });
+router.get("/tasks", new GetAllTasksController().getAll);
