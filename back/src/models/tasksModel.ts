@@ -2,7 +2,8 @@ import { connection } from "./connection";
 
 export class tasksModels  {
     getAll = async () => {
-        return await connection.execute('SELECT * FROM tasks');
+        const [tasks] = await connection.execute('SELECT * FROM tasks');
+        return tasks;
     }
 
     getById = async () => {
