@@ -6,17 +6,35 @@ export class tasksModels  {
         return tasks;
     }
 
+    getById = async (id: string) => {
+        const [task] = await connection.execute('SELECT * FROM tasks WHERE id = ?', [id]);
+        return task;
+    }
+
     createdTask = async (task: Itask, createdAt: string) => {
+            const [createdTask] = await connection.execute('INSERT INTO tasks(title, status, created_at, description) VALUES (?, ?, ?, ?)', [task.title, task.status, createdAt, task.description]);
 
-
-
-        const [createdTask] = await connection.execute('INSERT INTO tasks(title, status, created_at, description) VALUES (?, ?, ?, ?)', [task.title, task.title, createdAt, task.description]);
-
-        return createdTask;
+            return createdTask;
     }
 
-    getById = async () => {
-        const tasks = await connection.execute('SELECT * FROM tasks WHERE id =');
+    deleteAll = async () => {
+        const [deleteTasks] = await connection.execute('DELETE FROM tasks');
+
+        return deleteTasks;
     }
+
+    deleteById = async (id: string) => {
+        const [deleteTask] = await connection.execute('DELETE FROM tasks WHERE id = ?', [id]);
+
+        return deleteTask;
+    }
+
+    updateById = async (task: Itask, id: string) => {
+        const [updateTasks] = await connection.execute('UPDATE tasks SET title = ?, status = ?, description = ? WHERE id = ?', [task.title, task.status, task.description, id]);
+
+        return updateTasks;
+    }
+
+
 }
 
