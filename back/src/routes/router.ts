@@ -4,3 +4,4 @@ import { GetAllTasksController } from "../controllers/tasksControllers";
 export const router = Router();
 
 router.get("/tasks", new GetAllTasksController().getAll);
+router.post("/tasks", new GetAllTasksController().createdTask);
