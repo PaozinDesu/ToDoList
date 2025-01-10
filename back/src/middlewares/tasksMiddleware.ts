@@ -1,6 +1,4 @@
 import { Request, Response, NextFunction} from 'express';
-import { tasksModels } from '../models/tasksModel';
-import { connection } from '../models/connection';
 
 export class MiddlewareValidade {
     validadeTaskBody = (req: Request, res: Response, next: NextFunction ) => {
@@ -15,15 +13,4 @@ export class MiddlewareValidade {
             next();
         }
     }
-
-    // validadeExistTask = async (req: Request, res: Response, next: NextFunction ) => {
-    //     if (!task) {
-    //         return res.status(404).json({ message: 'Task not found' });
-    //     }
-    //     else {
-    //         res.status(200).json(task);
-    //     }
-
-
-    // }
 }

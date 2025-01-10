@@ -1,16 +1,18 @@
 import { Router } from "express";
-import { tasksController } from "../controllers/tasksControllers";
+import { TasksController } from "../controllers/tasksControllers";
 import { MiddlewareValidade } from '../middlewares/tasksMiddleware';
 
 export const router = Router();
 
-router.get("/tasks", new tasksController().getAll);
-router.get("/tasks/:id", new tasksController().getById);
-// router.get("/tasks/:id", new MiddlewareValidade().validadeGetTask, new tasksController().getById);
+const tasksController = new TasksController();
+const middlewareValidade = new MiddlewareValidade();
 
-router.post("/tasks", new MiddlewareValidade().validadeTaskBody, new tasksController().createdTask);
+router.get("/tasks", tasksController.getAll);
+router.get("/tasks/:id", tasksController.getById);
 
-router.delete("/tasks", new tasksController().deleteAll);
-router.delete("/tasks/:id", new tasksController().deleteById);
+router.post("/tasks", middlewareValidade.validadeTaskBody,tasksController.createdTask);
 
-router.put("/tasks/:id", new MiddlewareValidade().validadeTaskBody, new tasksController().updateById);
+router.delete("/tasks", tasksController.deleteAll);
+router.delete("/tasks/:id", tasksController.deleteById);
+
+router.put("/tasks/:id", middlewareValidade.validadeTaskBody, tasksController.updateById);

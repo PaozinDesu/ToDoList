@@ -1,6 +1,6 @@
 import { connection } from "./connection";
-import { Itask } from  "../interface/taskInterface";
-export class tasksModels  {
+import { ITask } from  "../interface/taskInterface";
+export class TasksModels  {
     getAll = async () => {
         const [tasks] = await connection.execute('SELECT * FROM tasks');
         return tasks;
@@ -8,10 +8,10 @@ export class tasksModels  {
 
     getById = async (id: string) => {
         const [task] = await connection.execute('SELECT * FROM tasks WHERE id = ?', [id]);
-        return task;
+        return task as ITask[];
     }
 
-    createdTask = async (task: Itask, createdAt: string) => {
+    createdTask = async (task: ITask, createdAt: string) => {
             const [createdTask] = await connection.execute('INSERT INTO tasks(title, status, created_at, description) VALUES (?, ?, ?, ?)', [task.title, task.status, createdAt, task.description]);
 
             return createdTask;
@@ -29,12 +29,11 @@ export class tasksModels  {
         return deleteTask;
     }
 
-    updateById = async (task: Itask, id: string) => {
+    updateById = async (task: ITask, id: string) => {
         const [updateTasks] = await connection.execute('UPDATE tasks SET title = ?, status = ?, description = ? WHERE id = ?', [task.title, task.status, task.description, id]);
 
         return updateTasks;
     }
-
 
 }
 
