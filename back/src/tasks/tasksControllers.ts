@@ -16,8 +16,6 @@ export class TasksController {
   getById = async (req: Request, res: Response) => {
     const { id } = req.params;
     const task = await this.tasksModels.getById(id);
-    console.log(task.length);
-    console.log(!task);
     if (!task.length) {
       res.status(404).json({ message: "Task not found" });
     } else {
