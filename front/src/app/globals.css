@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,4 +27,13 @@ body {
   @apply text-slate-800 text-2xl font-semibold
 }
 
-.columnItem{}
+.default{}
+
+.isFocused{
+  @apply flex items-center justify-center gap-2 cursor-pointer rounded-lg py-1 px-2 text-base font-medium text-sky-700 bg-sky-100
+}
+
+.isNotFocused{
+  @apply flex items-center justify-center gap-2 cursor-pointer rounded-lg py-1 px-2 text-base font-medium
+}
+

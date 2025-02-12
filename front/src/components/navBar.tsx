@@ -1,45 +1,80 @@
-import { Archive, ArrowDown, CircleAlert, ClipboardCheck, ClipboardList, List, LucideIcon } from "lucide-react";
-import { DynamicIcon } from "lucide-react/dynamic";
+"use client";
+import { useEffect, useState } from "react";
+import { Archive, ArrowDown, CircleAlert, ClipboardCheck, ClipboardList, List } from "lucide-react";
 
 export default function NavBar() {
-  const options = [
+  const [options, setOptions] = useState([
     {
-      icon: <List size={24} className="text-slate-600" />,
+      id: 1,
+      icon: <List size={24} />,
       text: "Today's tasks",
+      isFocused: true,
     },
     {
-      icon: <List size={24} className="text-slate-600" />,
+      id: 2,
+      icon: <List size={24} />,
       text: "All tasks",
+      isFocused: false,
     },
     {
-      icon: <Archive size={24} className="text-slate-600" />,
+      id: 3,
+      icon: <Archive size={24} />,
       text: "Archived tasks",
+      isFocused: false,
     },
     {
-      icon: <CircleAlert size={24} className="text-slate-600" />,
+      id: 4,
+      icon: <CircleAlert size={24} />,
       text: "Pendent tasks",
+      isFocused: false,
     },
     {
-      icon: <ClipboardList size={24} className="text-slate-600" />,
+      id: 5,
+      icon: <ClipboardList size={24} />,
       text: "Open tasks",
+      isFocused: false,
     },
     {
-      icon: <ClipboardCheck size={24} className="text-slate-600" />,
+      id: 6,
+      icon: <ClipboardCheck size={24} />,
       text: "Ended tasks",
+      isFocused: false,
     },
     {
-      icon: <ArrowDown size={24} className="text-slate-600" />,
+      id: 7,
+      icon: <ArrowDown size={24} />,
       text: "Order by",
+      subtitle: "Priority",
+      isFocused: false,
     },
-  ];
+  ]);
+
+  useEffect(() => {
+    console.log(options);
+  }, [options]);
+
+  function handleClick(id: number) {
+    const newOptions = options.map((option) => ({
+      ...option,
+      isFocused: option.id === id,
+    }));
+    setOptions(newOptions);
+  }
 
   return (
-    <ul className="flex justify-center gap-7 py-4 px-12">
-      {options.map((option, index) => (
-        <li key={index} className="flex items-center justify-center gap-2">
+    <ul className="flex justify-center gap-7 py-4 px-12 text-slate-600">
+      {options.map((option) => (
+        <button
+          key={option.id}
+          onClick={() => handleClick(option.id)}
+          className={option.isFocused ? "isFocused" : "isNotFocused"}
+        >
           {option.icon}
-          <span className="text-slate-500">{option.text}</span>
-        </li>
+          <div className="flex flex-col items-start">
+            <span className="">{option.text}</span>
+            {option.subtitle && <span className="text-xs">{option.subtitle}</span>}
+          </div>
+        </button>
       ))}
     </ul>
   );
