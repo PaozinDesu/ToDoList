@@ -49,9 +49,9 @@ export default function NavBar() {
     },
   ]);
 
-  useEffect(() => {
-    console.log(options);
-  }, [options]);
+  // useEffect(() => {
+  //   console.log(options);
+  // }, [options]);
 
   function handleClick(id: number) {
     const newOptions = options.map((option) => ({
@@ -62,7 +62,7 @@ export default function NavBar() {
   }
 
   return (
-    <ul className="flex justify-center gap-7 py-4 px-12 text-slate-600">
+    <ul className="flex justify-center gap-7 px-12 py-4 text-slate-600">
       {options.map((option) => (
         <button
           key={option.id}
