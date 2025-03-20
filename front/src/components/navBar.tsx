@@ -49,16 +49,16 @@ export default function NavBar() {
     },
   ]);
 
-  // useEffect(() => {
-  //   console.log(options);
-  // }, [options]);
-
   function handleClick(id: number) {
     const newOptions = options.map((option) => ({
       ...option,
       isFocused: option.id === id,
     }));
-    setOptions(newOptions);
+    if (id === 7) {
+      return;
+    } else {
+      setOptions(newOptions);
+    }
   }
 
   return (
@@ -70,9 +70,15 @@ export default function NavBar() {
           className={option.isFocused ? "isFocused" : "isNotFocused"}
         >
           {option.icon}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start duration-300">
             <span className="">{option.text}</span>
-            {option.subtitle && <span className="text-xs">{option.subtitle}</span>}
+            {option.subtitle && (
+              <select className="bg-transparent text-xs outline-none">
+                <option>End date</option>
+                <option>Status</option>
+                <option>Priority</option>
+              </select>
+            )}
           </div>
         </button>
       ))}

@@ -1,15 +1,19 @@
-"use client";
-import { ReplaceDate } from "@/utils/replaceDate";
+import { replaceDate } from "@/utils/replaceDate";
 import { ChevronDownIcon } from "lucide-react";
+import { ITask } from "../../interface/task.interface";
 
-export default function EditTask() {
+interface CreateTaskProps {
+  closeCreateModal: () => void;
+}
+
+export default function CreateTask({ closeCreateModal }: CreateTaskProps) {
   return (
     <div className="absolute bottom-0 right-0 flex max-h-screen min-h-screen w-full items-center justify-center bg-[rgba(0,0,0,0.25)]">
       <form className="flex min-w-[700px] flex-col gap-8 rounded-3xl bg-white p-9">
-        <h1 className="text-3xl font-semibold text-slate-800">Edit Task</h1>
+        <h1 className="text-3xl font-semibold text-slate-800">Create Task</h1>
         <div className="containerInputDefault">
           <p>Name</p>
-          <input className="inputDefault" type="text" placeholder="Walk with dog" />
+          <input required className="inputDefault" type="text" placeholder="Task name" />
         </div>
         <div className="flex justify-between gap-8">
           <div className="containerInputDefault">
@@ -31,10 +35,13 @@ export default function EditTask() {
           <div className="containerInputDefault w-full">
             <p>Start date</p>
             <input
+              name="startDate"
               type="date"
               className="inputDefault"
-              min={ReplaceDate(new Date(Date.now() - 31557600000).toLocaleDateString())}
-              max={ReplaceDate(new Date(Date.now() + 31557600000).toLocaleDateString())}
+              min={replaceDate(new Date(Date.now() - 31557600000).toLocaleDateString())}
+              max={replaceDate(new Date(Date.now() + 31557600000).toLocaleDateString())}
+              required
+              defaultValue={replaceDate(new Date(Date.now()).toLocaleDateString())}
             />
           </div>
           <div className="containerInputDefault w-full">
@@ -42,18 +49,26 @@ export default function EditTask() {
             <input
               className="inputDefault"
               type="date"
-              min={ReplaceDate(new Date(Date.now() - 31557600000).toLocaleDateString())}
-              max={ReplaceDate(new Date(Date.now() + 31557600000).toLocaleDateString())}
+              name="endDate"
+              min={replaceDate(new Date(Date.now() - 31557600000).toLocaleDateString())}
+              max={replaceDate(new Date(Date.now() + 31557600000).toLocaleDateString())}
+              required
+              defaultValue={replaceDate(new Date(Date.now() + 86459178).toLocaleDateString())}
             />
           </div>
         </div>
         <div className="containerInputDefault">
           <p>Description</p>
-          <input className="inputDefault" type="text" placeholder="End before 12/2/2025" />
+          <input required className="inputDefault" type="text" placeholder="Do after the lunch" />
         </div>
         <div className="flex justify-end gap-4 font-medium">
-          <button className="rounded-lg bg-slate-200 px-5 py-3 text-lg text-sky-700">Cancel</button>
-          <button className="rounded-lg bg-sky-700 px-5 py-3 text-lg text-white">Edit task</button>
+          <input
+            onClick={() => closeCreateModal()}
+            type="button"
+            className="cursor-pointer rounded-lg bg-slate-200 px-5 py-3 text-lg text-sky-700 duration-300 ease-out"
+            value="Cancel"
+          />
+          <button className="rounded-lg bg-sky-700 px-5 py-3 text-lg text-white">Create task</button>
         </div>
       </form>
     </div>

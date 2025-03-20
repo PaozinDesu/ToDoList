@@ -1,7 +1,7 @@
-import EditTask from "@/components/editTask";
 import MainHeader from "../components/header";
 import NavBar from "../components/navBar";
 import Tasks from "@/components/tasks";
+import { useState } from "react";
 
 export default function Home() {
   return (
@@ -9,7 +9,6 @@ export default function Home() {
       <MainHeader />
       <NavBar />
       <Tasks />
-      <EditTask />
     </div>
   );
 }
