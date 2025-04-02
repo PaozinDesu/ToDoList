@@ -42,3 +42,13 @@ body {
 .containerInputDefault{
   @apply flex flex-col gap-1 text-lg font-medium text-slate-800
 }
+
+.priority-high{
+  @apply text-red-700 bg-red-100
+}
+.priority-medium{
+  @apply text-amber-700 bg-amber-100
+}
+.priority-low{
+  @apply text-sky-700 bg-sky-100
+}

@@ -1,12 +1,13 @@
 import { ITask } from "@/interface/task.interface";
+import { ITasksModel } from "@/models/tasksModel";
 
 interface DeleteTaskProps {
   task: ITask;
-  closeDeleteModal: () => void;
-  deleteTask: (task: number) => void;
+  handleCloseDeleteModal: ITasksModel["closeDeleteModal"];
+  handleDeleteTask: ITasksModel["deleteTask"];
 }
 
-export default function DeleteTask({ task, closeDeleteModal, deleteTask }: DeleteTaskProps) {
+const DeleteTask: React.FC<DeleteTaskProps> = ({ task, handleCloseDeleteModal, handleDeleteTask }) => {
   return (
     <div className="absolute bottom-0 right-0 flex max-h-screen min-h-screen w-full items-center justify-center bg-[rgba(0,0,0,0.25)]">
       <form className="flex max-w-[540px] flex-col gap-8 rounded-3xl bg-white p-9">
@@ -16,16 +17,21 @@ export default function DeleteTask({ task, closeDeleteModal, deleteTask }: Delet
         </h4>
         <div className="flex justify-end gap-4 font-medium">
           <input
-            onClick={() => closeDeleteModal()}
+            onClick={() => handleCloseDeleteModal()}
             type="button"
             className="cursor-pointer rounded-lg bg-slate-200 px-5 py-3 text-lg text-sky-700 duration-300 ease-out"
             value="Cancel"
           />
-          <button onClick={() => deleteTask(task.id)} className="rounded-lg bg-sky-700 px-5 py-3 text-lg text-white">
+          <button
+            onClick={() => handleDeleteTask(task.id)}
+            className="rounded-lg bg-sky-700 px-5 py-3 text-lg text-white"
+          >
             Delete task
           </button>
         </div>
       </form>
     </div>
   );
-}
+};
+
+export default DeleteTask;

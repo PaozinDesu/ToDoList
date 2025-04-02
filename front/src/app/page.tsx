@@ -1,13 +1,9 @@
-import TaskViewModel from "@/viewModels/taskViewModel";
-import MainHeader from "../components/header";
-import NavBar from "../components/navBar";
+import TaskListPage from "./tasks/page";
 
 export default function Home() {
   return (
     <div className="relative min-h-[100vh] w-full">
-      <MainHeader />
-      <NavBar />
-      <TaskViewModel />
+      <TaskListPage />
     </div>
   );
 }

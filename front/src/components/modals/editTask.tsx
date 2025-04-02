@@ -1,13 +1,14 @@
 import { replaceDate } from "@/utils/replaceDate";
 import { ChevronDownIcon } from "lucide-react";
 import { ITask } from "../../interface/task.interface";
+import { ITasksModel } from "@/models/tasksModel";
 
 interface EditTaskProps {
   task: ITask;
-  closeEditModal: () => void;
+  handleCloseEditModal: ITasksModel["closeEditModal"];
 }
 
-export default function EditTask({ task, closeEditModal }: EditTaskProps) {
+const EditTask: React.FC<EditTaskProps> = ({ task, handleCloseEditModal }) => {
   return (
     <div className="absolute bottom-0 right-0 flex max-h-screen min-h-screen w-full items-center justify-center bg-[rgba(0,0,0,0.25)]">
       <form className="flex min-w-[700px] flex-col gap-8 rounded-3xl bg-white p-9">
@@ -65,7 +66,7 @@ export default function EditTask({ task, closeEditModal }: EditTaskProps) {
         </div>
         <div className="flex justify-end gap-4 font-medium">
           <input
-            onClick={() => closeEditModal()}
+            onClick={() => handleCloseEditModal()}
             type="button"
             className="cursor-pointer rounded-lg bg-slate-200 px-5 py-3 text-lg text-sky-700 duration-300 ease-out"
             value="Cancel"
@@ -75,4 +76,6 @@ export default function EditTask({ task, closeEditModal }: EditTaskProps) {
       </form>
     </div>
   );
-}
+};
+
+export default EditTask;

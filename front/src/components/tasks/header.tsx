@@ -1,7 +1,9 @@
+import { getToday } from "@/utils/getToday";
 import { Sun, LogIn } from "lucide-react";
 
-export default function MainHeader() {
-  const today = new Date(Date.now()).toDateString().replace(" ", ", ");
+const TaskListHeader: React.FC = () => {
+  const today = getToday();
+
   return (
     <header className="flex justify-between px-12 py-6">
       <div>
@@ -19,4 +21,6 @@ export default function MainHeader() {
       </div>
     </header>
   );
-}
+};
+
+export default TaskListHeader;

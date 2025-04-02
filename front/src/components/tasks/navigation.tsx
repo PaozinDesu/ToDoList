@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Archive, ArrowDown, CircleAlert, ClipboardCheck, ClipboardList, List } from "lucide-react";
 
-export default function NavBar() {
+const TaskListNavigation: React.FC = () => {
   const [options, setOptions] = useState([
     {
       id: 1,
@@ -84,4 +84,6 @@ export default function NavBar() {
       ))}
     </ul>
   );
-}
+};
+
+export default TaskListNavigation;
