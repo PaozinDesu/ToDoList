@@ -1,7 +1,7 @@
 import { getToday } from "@/utils/getToday";
-import { Sun, LogIn } from "lucide-react";
+import { Sun } from "lucide-react";
 
-const TaskListHeader: React.FC = () => {
+const MainHeader: React.FC = () => {
   const today = getToday();
 
   return (
@@ -15,12 +15,9 @@ const TaskListHeader: React.FC = () => {
         <div className="cursor-pointer rounded-full bg-sky-100 p-2">
           <Sun size={32} className="text-sky-700" />
         </div>
-        <div className="rounded-full bg-sky-100 p-2">
-          <LogIn size={32} className="text-sky-700" />
-        </div>
       </div>
     </header>
   );
 };
 
-export default TaskListHeader;
+export default MainHeader;
