@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const geistInter = Inter({
-  variable: "--font-geist-inter",
-  subsets: ["latin"],
-});
+import MainHeader from "@/components/mainHeader";
 
 
 export const metadata: Metadata = {
@@ -20,9 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistInter.variable}`}
-      >
+      <body className="bg-slate-50">
+      <MainHeader />
         {children}
       </body>
     </html>

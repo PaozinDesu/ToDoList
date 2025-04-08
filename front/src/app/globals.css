@@ -15,8 +15,7 @@
   }
 }
 
-body {
-  background: var(--background);
+* {
   /* font-family: Arial, Helvetica, sans-serif; */
   padding: 0;
   margin: 0;
@@ -50,5 +49,15 @@ body {
   @apply text-amber-700 bg-amber-100
 }
 .priority-low{
+  @apply text-sky-700 bg-sky-100
+}
+
+.status-pending{
+  @apply text-red-700 bg-red-100
+}
+.status-done{
+  @apply text-emerald-700 bg-emerald-100
+}
+.status-in-progress{
   @apply text-sky-700 bg-sky-100
 }

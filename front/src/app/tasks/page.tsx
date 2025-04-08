@@ -3,9 +3,8 @@ import useTasksViewModel from "@/viewModels/tasks/tasksViewModels";
 import EditTask from "@/components/modals/editTask";
 import CreateTask from "@/components/modals/createTask";
 import DeleteTask from "@/components/modals/deleteTask";
-import TaskListTable from "@/components/tasks/table";
-import TaskListHeader from "@/components/tasks/header";
-import TaskListNavigation from "@/components/tasks/navigation";
+import TaskListTable from "@/components/pages/tasks/table";
+import TaskListNavigation from "@/components/pages/tasks/navigation";
 
 const TaskListPage: React.FC = () => {
   const {
@@ -27,8 +26,7 @@ const TaskListPage: React.FC = () => {
   } = useTasksViewModel();
 
   return (
-    <div className="relative min-h-[100vh] w-full">
-      <TaskListHeader />
+    <div className="w-full">
       <TaskListNavigation />
       <TaskListTable
         tasks={tasks}
