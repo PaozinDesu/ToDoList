@@ -19,8 +19,8 @@ const Login: React.FC = () => {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-base font-normal">
-              <input className="h-4 w-4" type="checkbox" />
-              <p className="">Remember me</p>
+              <input className="h-4 w-4" type="checkbox" id="remember" />
+              <label htmlFor="remember">Remember me</label>
             </div>
             <p className="cursor-pointer text-base font-medium text-slate-500">Forget password?</p>
           </div>
@@ -28,7 +28,7 @@ const Login: React.FC = () => {
 
         <div className="flex justify-center gap-4 text-base font-medium text-slate-800">
           <p>
-            don’t have a account? <span className="cursor-pointer text-sky-700">Register now!</span>
+            don’t have a account? <span className="cursor-pointer text-sky-700">Create account!</span>
           </p>
         </div>
 

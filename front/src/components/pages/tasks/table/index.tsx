@@ -1,5 +1,5 @@
 "use client";
-import { ITasksModel } from "@/models/tasksModel";
+import { ITasksModel } from "@/models/tasks/tasksModel";
 import { Plus } from "lucide-react";
 import TaskListTableRow from "./row";
 
@@ -22,7 +22,6 @@ const TaskListTable: React.FC<TaskListTableProps> = ({
   getPriorityColor,
   getStatusColor,
 }) => {
-  console.log(tasks);
   return (
     <main className="mx-12 rounded-2xl bg-white px-5 drop-shadow-md">
       <table className="w-full table-fixed border-collapse">

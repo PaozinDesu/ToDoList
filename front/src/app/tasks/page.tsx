@@ -1,5 +1,6 @@
 "use client";
 import useTasksViewModel from "@/viewModels/tasks/tasksViewModels";
+import useNavigationViewModel from "@/viewModels/tasks/navigationViewModel";
 import EditTask from "@/components/modals/editTask";
 import CreateTask from "@/components/modals/createTask";
 import DeleteTask from "@/components/modals/deleteTask";
@@ -25,9 +26,11 @@ const TaskListPage: React.FC = () => {
     updateTaskStatus,
   } = useTasksViewModel();
 
+  const { options, navigationClick } = useNavigationViewModel();
+
   return (
     <div className="w-full">
-      <TaskListNavigation />
+      <TaskListNavigation options={options} navigationClick={navigationClick} />
       <TaskListTable
         tasks={tasks}
         handleOpenCreateModal={openCreateModal}

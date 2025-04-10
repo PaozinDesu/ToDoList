@@ -1,5 +1,5 @@
 import { ITask } from "@/interface/task.interface";
-import { ITasksModel } from "@/models/tasksModel";
+import { ITasksModel } from "@/models/tasks/tasksModel";
 
 interface DeleteTaskProps {
   task: ITask;

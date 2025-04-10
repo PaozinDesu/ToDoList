@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,22 +7,24 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #F8FAFC;
-    --font-family: "Inter", "sans-serif";
+  body {
+    --title: #0F172B;
+    --subTitle: #314158;
+    --text: #0F172B;
+    --background: #F8FAFC;
   }
 }
-
+body{
+  prefers-color-scheme: light;
+}
 * {
-  /* font-family: Arial, Helvetica, sans-serif; */
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 .columnTitle{
-  @apply text-slate-800 text-2xl font-semibold
+  @apply text-slate-800 text-2xl font-semibold 
 }
 
 .isFocused{

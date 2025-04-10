@@ -7,12 +7,15 @@ const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(true);
   return (
     <div className="flex w-full select-none items-center justify-center">
-      <form className="flex min-w-[600px] flex-col gap-8 rounded-3xl bg-white p-9">
-        <h1 className="text-3xl font-semibold text-slate-800">Login</h1>
-
+      <form className="flex min-w-[600px] flex-col gap-4 rounded-3xl bg-white p-9">
+        <h1 className="text-3xl font-semibold text-slate-800">Register</h1>
+        <div className="containerInputDefault">
+          <p>Email</p>
+          <input required className="inputDefault" type="text" placeholder="Youremail@domain.com" />
+        </div>
         <div className="containerInputDefault">
           <p>User name</p>
-          <input required className="inputDefault" type="text" placeholder="Ex: Pedro Silva Santos" />
+          <input required className="inputDefault" type="text" placeholder="Your name" />
         </div>
 
         <div className="containerInputDefault">
@@ -25,13 +28,13 @@ const Register: React.FC = () => {
               placeholder="Your password"
             />
             {showPassword ? (
-              <Eye
+              <EyeClosed
                 onClick={() => setShowPassword(false)}
                 size={24}
                 className="ml-[-32px] cursor-pointer text-slate-600"
               />
             ) : (
-              <EyeClosed
+              <Eye
                 onClick={() => setShowPassword(true)}
                 size={24}
                 className="ml-[-32px] cursor-pointer text-slate-600"
@@ -49,8 +52,8 @@ const Register: React.FC = () => {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-base font-normal">
-              <input className="h-4 w-4" type="checkbox" />
-              <p className="">Remember me</p>
+              <input className="h-4 w-4" type="checkbox" id="remember" />
+              <label htmlFor="remember">Remember me</label>
             </div>
           </div>
         </div>
@@ -62,7 +65,7 @@ const Register: React.FC = () => {
         </div>
 
         <div className="flex justify-center gap-4 font-medium">
-          <button className="rounded-lg bg-sky-700 px-16 py-3 text-xl text-white">Register</button>
+          <button className="rounded-lg bg-sky-700 px-16 py-3 text-xl text-white">Create account</button>
         </div>
       </form>
     </div>

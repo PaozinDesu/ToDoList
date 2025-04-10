@@ -1,7 +1,8 @@
 "use client";
+
 import { ITask } from "@/interface/task.interface";
 import { useState } from "react";
-import { ITasksModel } from "@/models/tasksModel";
+import { ITasksModel } from "@/models/tasks/tasksModel";
 
 export default function useTasksViewModel(): ITasksModel {
   const [tasks, setTasks] = useState<ITask[]>([

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import MainHeader from "@/components/mainHeader";
+import { Inter } from "next/font/google";
 
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Task List",
@@ -15,8 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-slate-50">
-      <MainHeader />
+      <body className={inter.className + " bg-slate-50"}>
+        <MainHeader />
         {children}
       </body>
     </html>

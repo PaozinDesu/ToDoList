@@ -1,6 +1,6 @@
 import { replaceDate } from "@/utils/replaceDate";
 import { ChevronDownIcon } from "lucide-react";
-import { ITasksModel } from "@/models/tasksModel";
+import { ITasksModel } from "@/models/tasks/tasksModel";
 
 interface CreateTaskProps {
   handleCloseCreateModal: ITasksModel["closeCreateModal"];

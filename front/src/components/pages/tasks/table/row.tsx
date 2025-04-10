@@ -1,5 +1,5 @@
 import { ITask } from "@/interface/task.interface";
-import { ITasksModel } from "@/models/tasksModel";
+import { ITasksModel } from "@/models/tasks/tasksModel";
 import { Archive, Circle, CircleCheckBig, Pencil, Trash2 } from "lucide-react";
 
 interface TaskListTableRowProps {

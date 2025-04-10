@@ -1,7 +1,7 @@
 import { replaceDate } from "@/utils/replaceDate";
 import { ChevronDownIcon } from "lucide-react";
 import { ITask } from "../../interface/task.interface";
-import { ITasksModel } from "@/models/tasksModel";
+import { ITasksModel } from "@/models/tasks/tasksModel";
 
 interface EditTaskProps {
   task: ITask;
